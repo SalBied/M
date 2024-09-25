@@ -18,8 +18,13 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 // Public routes
 Route::post('/register', [AuthController::class, 'register']);
+Route::post('/verify-email', [AuthController::class, 'verifyOtp']);
+
 Route::post('/login', [AuthController::class, 'login']);
+
+
 Route::post('/password/forgot', [AuthController::class, 'forgotPassword']);
+Route::post('/password/verify', [AuthController::class, 'verifyResetCode']);
 Route::post('/password/reset', [AuthController::class, 'resetPassword']);
 
 
