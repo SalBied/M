@@ -2,25 +2,17 @@
 
 namespace Database\Factories;
 
-
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Item>
- */
 class ItemFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
+
     public function definition(): array
     {
 
         return [
-            'seller_id' => User::factory(), // Associate with a user (seller)
+            'seller_id' => User::factory(),
             'title' => $this->faker->sentence(3),
             'description' => $this->faker->paragraph,
             'price' => $this->faker->randomFloat(2, 10, 1000),
@@ -28,7 +20,7 @@ class ItemFactory extends Factory
             'photos' => json_encode([$this->faker->imageUrl(640, 480, 'technics'), $this->faker->imageUrl(640, 480, 'technics')]),
             'category_id' =>random_int(1,10),
             'location' => $this->faker->city,
-            'status' => 'active', // Default status
+            'status' => 'active',
         ];
     }
 }

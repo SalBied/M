@@ -112,6 +112,7 @@ class AuthController extends Controller
     // Get authenticated user details
     public function getUser()
     {
+
         return response()->json(Auth::user());
     }
 
@@ -119,6 +120,7 @@ class AuthController extends Controller
     public function updateProfile(UpdateProfileRequest $request)
     {
         $user = Auth::user();
+
         $user->update($request->validated());
         return response()->json($user);
     }

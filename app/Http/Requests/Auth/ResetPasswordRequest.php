@@ -17,7 +17,7 @@ class ResetPasswordRequest extends FormRequest
     {
         return [
             'reset_token' => 'required|string',  // Reset token from verify-reset-code
-            'password' => 'required|string|min:8',
+            'password' => 'required|string|min:8|confirmed',
         ];
     }
 
