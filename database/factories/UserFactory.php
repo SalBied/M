@@ -29,11 +29,11 @@ class UserFactory extends Factory
         return [
             'username' => $this->faker->unique()->userName,
             'email' => $this->faker->unique()->safeEmail,
-            'password' => Hash::make('password'), // Default password
+            'password' => Hash::make('password'),
             'email_verified_at' => now(),
             'location' => $this->faker->city,
             'profile_picture' => $this->faker->imageUrl(640, 480, 'people'),
-            'role' => 'user', // You can make this dynamic if needed
+            'role' => 'user',
             'total_items_sold' => $this->faker->numberBetween(0, 100),
             'feedback_rating' => $this->faker->randomFloat(1, 0, 5),
         ];
