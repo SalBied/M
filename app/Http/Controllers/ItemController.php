@@ -34,7 +34,7 @@ class ItemController extends Controller
 
     public function show(Item $item)
     {
-        return response()->json($item);
+        return response()->json($this->itemService->show($item));
     }
 
     public function update(UpdateItemRequest $request, Item $item)

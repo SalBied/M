@@ -32,4 +32,18 @@ class ItemService
 
         return $query->get();
     }
+    public function show(Item $item){
+        $item->load('seller', 'category');
+
+        $similarItems = Item::where('category_id', $item->category_id)
+            ->where('id', '!=', $item->id)
+            ->take(5)
+            ->get();
+
+        return response()->json([
+            'item' => $item,
+            'similar_items' => $similarItems
+        ]);
+
+    }
 }
