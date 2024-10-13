@@ -18,7 +18,7 @@ class StoreItemRequest extends FormRequest
             'description' => 'required|string',
             'price' => 'required|numeric',
             'condition' => 'required|in:new,used',
-            'photos' => 'required|json',
+            'photos.*' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'category_id' => 'required|exists:categories,id',
             'location' => 'required|string',
         ];

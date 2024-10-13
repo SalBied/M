@@ -14,17 +14,30 @@ class CategorySeeder extends Seeder
     public function run()
     {
         $categories = [
-            'Electronics',
-            'Furniture',
-            'Books',
-            'Clothing',
-            'Sports Equipment',
-
+            [
+                'name' => 'Electronics',
+                'photo' => 'category_icons/electr.png', // Assuming the file exists in public/category_icons
+            ],
+            [
+                'name' => 'Furniture',
+                'photo' => 'category_icons/fur.png',
+            ],
+            [
+                'name' => 'Books',
+                'photo' => 'category_icons/books.jpeg',
+            ],
+            [
+                'name' => 'Sports',
+                'photo' => 'category_icons/sports.jpeg',
+            ],
+            [
+                'name' => 'Clothing',
+                'photo' => 'category_icons/clothing.jpeg',
+            ]
         ];
 
         foreach ($categories as $category) {
-
-            Category::create(['name' => $category]);
+            Category::create($category);
         }
     }
 }

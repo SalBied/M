@@ -29,7 +29,7 @@ class ItemController extends Controller
 
     public function store(StoreItemRequest $request)
     {
-        return response()->json($this->itemService->createItem($request->validated()), 201);
+        return response()->json($this->itemService->createItem($request->validated(),$request), 201);
     }
 
     public function show(Item $item)

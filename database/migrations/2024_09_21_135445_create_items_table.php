@@ -18,7 +18,6 @@ return new class extends Migration
             $table->text('description');
             $table->float('price');
             $table->enum('condition', ['new', 'used']);
-            $table->json('photos');
             $table->foreignId('category_id')->constrained('categories');
             $table->string('location');
             $table->enum('status', ['active', 'sold', 'removed'])->default('active');

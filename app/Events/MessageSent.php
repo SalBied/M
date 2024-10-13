@@ -3,11 +3,8 @@
 namespace App\Events;
 
 use App\Models\Message;
-use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Broadcasting\PrivateChannel;
-use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
@@ -18,18 +15,16 @@ class MessageSent
 
     public function __construct(Message $message)
     {
+
         $this->message = $message;
     }
 
 
     public function broadcastOn()
     {
+        self::dispatch();
         // Broadcasting on a private channel for the specific chat
         return new PrivateChannel('chat.' . $this->message->chat_id);
     }
 
-    public function broadcastAs()
-    {
-        return 'message.sent';
-    }
 }

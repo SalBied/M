@@ -89,7 +89,7 @@ class ItemFactory extends Factory
             'description' => $description,
             'price' => $price,
             'condition' => $this->faker->randomElement(['new', 'used']),
-            'photos' => $photos,
+         //   'photos' => $photos,
             'category_id' => $category->id,
             'location' => $this->faker->city,
             'status' => 'active',

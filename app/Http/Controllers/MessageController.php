@@ -37,9 +37,8 @@ class MessageController extends Controller
             'sender_id' => $user->id,
             'content' => $validated['content'],
         ]);
+        event(new MessageSent($message));
 
-        // Broadcast the message to the chat channel
-        broadcast(new MessageSent($message))->toOthers();
 
         return response()->json($message, 201);
     }

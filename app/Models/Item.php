@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Item extends Model
 {
     use HasFactory;
+    protected $casts = [
+        'photos' => 'array',
+    ];
+
 
     protected $guarded = [];
     public function category()
@@ -28,5 +32,10 @@ class Item extends Model
     public function chats()
     {
         return $this->hasMany(Chat::class);
+    }
+
+    public function photos()
+    {
+        return $this->hasMany(ItemPhoto::class);
     }
 }

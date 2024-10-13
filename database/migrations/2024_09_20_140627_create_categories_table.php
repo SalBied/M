@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique(); // Category name (e.g., Electronics, Furniture)
+            $table->string('photo');
             $table->timestamps();
         });
 
