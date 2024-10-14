@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('item_photos', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique(); // Category name (e.g., Electronics, Furniture)
-           $table->string('photo');
+            $table->unsignedBigInteger('item_id'); // Foreign key linking to items
+            $table->string('photo_path'); // Path to the photo
             $table->timestamps();
-        });
 
+            // Add foreign key constraint
+            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
+        });
     }
 
     /**
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('item_photos');
     }
 };
